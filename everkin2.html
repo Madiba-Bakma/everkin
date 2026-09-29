@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<!--
+  EverKin – One-Page Website
+  ============================================================
+  👋 WELCOME TO YOUR WEBSITE FILE
+
+  You only need to edit ONE place to update your site:
+  the SETTINGS PANEL below (look for the big box of text
+  inside the <script> tag near the top).
+
+  Change your phone number, text, colours, photo — all in
+  one spot. The rest of the file runs itself.
+  ============================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EverKin – Always Family, Always There</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+
+  <!-- ============================================================
+  ✏️  YOUR SETTINGS — EDIT EVERYTHING IN HERE
+
+  This is the only part of the file you ever need to touch.
+  Each setting has a label explaining what it changes.
+  Just replace the text between the quote marks "like this".
+  ============================================================ -->
+  <script>
+    const SITE = {
+
+      // ── BRAND ──────────────────────────────────────────────
+      brandName:   "EverKin",
+      tagline:     "Always family, always there.",
+      // The small gold text that appears above the main headline
+      eyebrow:     "Manchester & the North West",
+
+      // ── HERO SECTION (the big first screen) ────────────────
+      heroTitle:       "Trusted companionship for older loved ones",
+      heroSubtitle:    "Regular visits. Familiar faces. Peace of mind for families.",
+      heroDescription: "We provide warm, reliable companionship and everyday support across Manchester and the North West – helping older adults feel happier, more confident and connected.",
+      // The circular gold badge on the photo
+      heroBadgeText:   "We become the trusted presence you wish could be there more often.",
+      // The two buttons in the hero
+      heroPrimaryBtn:  "Book a Free Consultation",
+      heroSecondaryBtn:"Our Services",
+      // The photo on the right side of the hero.
+      // Paste a full image URL here, e.g. "https://yoursite.com/photo.jpg"
+      heroImage:       "https://images.unsplash.com/photo-1609220136736-443140cffec6?w=900&q=80",
+      heroImageAlt:    "Companion with older adult, smiling over tea",
+
+      // ── TRUST BAR (the 4 green boxes below the hero) ───────
+      trust: [
+        { heading: "Same Companion",        body: "Every single visit"    },
+        { heading: "Fully Vetted & Trusted", body: "DBS checked companions" },
+        { heading: "Regular Updates",        body: "Full peace of mind"   },
+        { heading: "Local Companions",       body: "Manchester & North West" },
+      ],
+
+      // ── SERVICES SECTION ────────────────────────────────────
+      servicesLabel: "What we offer",
+      servicesTitle: "Genuine care woven into every visit",
+      services: [
+        {
+          title: "Companionship",
+          items: [
+            "Friendly conversation and company",
+            "Regular weekly visits and check-ins",
+            "Emotional support and reassurance",
+            "Games, hobbies and shared activities",
+          ]
+        },
+        {
+          title: "Everyday Support",
+          items: [
+            "Shopping and errands",
+            "Light household help",
+            "Meal preparation support",
+            "Letters and admin help",
+          ]
+        },
+        {
+          title: "Outings & Connection",
+          items: [
+            "Walks and fresh air",
+            "Café and social visits",
+            "Appointment companionship",
+            "Technology support",
+          ]
+        },
+      ],
+
+      // ── WHO IT'S FOR SECTION ─────────────────────────────────
+      whoLabel:     "Who it's for",
+      whoTitle:     "For families who care deeply",
+      whoItems: [
+        "Older adults living alone",
+        "Families supporting loved ones from a distance",
+        "Anyone needing extra companionship and routine",
+      ],
+      // The disclaimer card on the right
+      importantTitle: "Important to know",
+      importantText:  "We provide warm, dedicated companionship and practical everyday support.",
+      importantBold:  "We do not offer personal care (such as bathing or dressing).",
+
+      // ── CONTACT / CTA SECTION ────────────────────────────────
+      ctaLabel:       "Get in touch",
+      ctaTitle:       "Book a free consultation today",
+      ctaDescription: "Let's find the right companion for your loved one. We'll take the time to understand their personality, needs and routines so every visit feels natural and warm.",
+      ctaCardHeading: "We're here when you need us.",
+      // Phone number (used for the button AND the contact card)
+      phone:        "07424 460472",
+      email:        "helpline@everkin.co.uk",
+      website:      "www.everkin.co.uk",
+      // Text for the big call button
+      ctaButtonText: "Call 07424 460472",
+
+      // ── FOOTER ───────────────────────────────────────────────
+      footerArea: "Serving Manchester & the North West",
+
+      // ── COLOURS ──────────────────────────────────────────────
+      // To change a colour, replace the # code.
+      // You can find colour codes at: https://htmlcolorcodes.com
+      colours: {
+        forest:      "#1e4433",   // main dark green (buttons, nav, backgrounds)
+        forestLight: "#2a5c45",   // slightly lighter green (hover effects)
+        gold:        "#c9973c",   // warm amber/gold (accents, labels, badge)
+        goldLight:   "#e8c47a",   // pale gold (subtle tints)
+        cream:       "#faf7f2",   // warm off-white (section backgrounds)
+        warmWhite:   "#fffdf9",   // near-white (hero, cards)
+        text:        "#2a2a2a",   // dark grey (body text)
+        textMuted:   "#6b6b6b",   // medium grey (secondary text)
+      },
+    };
+  </script>
+  <!-- ============================================================
+  ✅ END OF SETTINGS — don't edit anything below this line
+     unless you know what you're doing!
+  ============================================================ -->
+
+
+  <style>
+    /* Colours come from SITE.colours — applied via JS into :root below */
+    :root {
+      --forest:       #1e4433;
+      --forest-light: #2a5c45;
+      --gold:         #c9973c;
+      --gold-light:   #e8c47a;
+      --cream:        #faf7f2;
+      --warm-white:   #fffdf9;
+      --text:         #2a2a2a;
+      --text-muted:   #6b6b6b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(250,247,242,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,151,60,0.2);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw; height: 64px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo svg { width: 36px; height: 36px; }
+    .nav-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--forest); letter-spacing: -0.02em; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { text-decoration: none; font-size: 0.85rem; font-weight: 500; color: var(--text-muted); letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--forest); }
+    .nav-cta { background: var(--forest); color: #fff; border: none; cursor: pointer; padding: 10px 22px; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.02em; transition: background 0.2s; text-decoration: none; display: inline-block; }
+    .nav-cta:hover { background: var(--forest-light); }
+
+    /* HERO */
+    .hero { min-height: 100vh; padding-top: 64px; display: grid; grid-template-columns: 1fr 1fr; background: var(--warm-white); position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(30,68,51,0.06) 0%, transparent 70%); pointer-events: none; }
+    .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 80px 5vw 80px 8vw; position: relative; z-index: 1; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+    .hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+    .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 4.5vw, 4.2rem); font-weight: 600; line-height: 1.1; color: var(--forest); letter-spacing: -0.02em; margin-bottom: 12px; }
+    .hero-subtitle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.4rem; color: var(--gold); margin-bottom: 28px; }
+    .hero-desc { font-size: 1rem; font-weight: 300; line-height: 1.75; color: var(--text-muted); max-width: 420px; margin-bottom: 40px; }
+    .hero-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+    .btn-primary { background: var(--forest); color: #fff; border: none; cursor: pointer; padding: 14px 30px; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500; transition: all 0.25s; text-decoration: none; display: inline-block; }
+    .btn-primary:hover { background: var(--forest-light); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(30,68,51,0.25); }
+    .btn-ghost { background: none; border: 1.5px solid var(--gold); color: var(--gold); cursor: pointer; padding: 13px 28px; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500; transition: all 0.25s; text-decoration: none; display: inline-block; }
+    .btn-ghost:hover { background: var(--gold); color: #fff; }
+    .hero-right { position: relative; overflow: hidden; }
+    .hero-right img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .hero-badge { position: absolute; bottom: 40px; left: -20px; background: var(--gold); color: #fff; border-radius: 50%; width: 130px; height: 130px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 12px; box-shadow: 0 8px 32px rgba(201,151,60,0.4); font-size: 0.72rem; line-height: 1.4; font-weight: 400; }
+    .hero-badge svg { width: 20px; height: 20px; margin-bottom: 4px; fill: white; }
+
+    /* TRUST BAR */
+    .trust-bar { background: var(--forest); display: grid; grid-template-columns: repeat(4, 1fr); padding: 0 5vw; }
+    .trust-item { display: flex; align-items: center; gap: 14px; padding: 28px 20px; border-right: 1px solid rgba(255,255,255,0.1); }
+    .trust-item:last-child { border-right: none; }
+    .trust-icon { width: 40px; height: 40px; flex-shrink: 0; opacity: 0.85; }
+    .trust-text { font-size: 0.82rem; font-weight: 300; color: rgba(255,255,255,0.85); line-height: 1.4; }
+    .trust-text strong { display: block; font-weight: 500; color: #fff; font-size: 0.88rem; }
+
+    /* SERVICES */
+    .services { padding: 100px 8vw; background: var(--cream); }
+    .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+    .section-label::after { content: ''; flex: 1; max-width: 40px; height: 1px; background: var(--gold); }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 600; color: var(--forest); letter-spacing: -0.02em; margin-bottom: 64px; max-width: 500px; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .service-card { background: var(--warm-white); padding: 48px 36px; transition: all 0.3s; position: relative; overflow: hidden; }
+    .service-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--gold-light); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover { background: #fff; box-shadow: 0 20px 60px rgba(30,68,51,0.1); transform: translateY(-4px); }
+    .service-icon { width: 56px; height: 56px; background: var(--forest); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+    .service-icon svg { width: 28px; height: 28px; fill: white; }
+    .service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--forest); margin-bottom: 20px; }
+    .service-list { list-style: none; }
+    .service-list li { font-size: 0.88rem; font-weight: 300; color: var(--text-muted); padding: 6px 0; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid rgba(0,0,0,0.05); }
+    .service-list li:last-child { border-bottom: none; }
+    .service-list li::before { content: '♥'; color: var(--gold); font-size: 0.65rem; flex-shrink: 0; }
+
+    /* WHO */
+    .who-section { background: var(--forest); display: grid; grid-template-columns: 1fr 1fr; min-height: 480px; }
+    .who-left { padding: 80px 8vw; }
+    .who-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 16px; }
+    .who-title { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 600; color: #fff; letter-spacing: -0.02em; margin-bottom: 36px; }
+    .who-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .who-list li { display: flex; align-items: center; gap: 14px; font-size: 0.95rem; font-weight: 300; color: rgba(255,255,255,0.85); }
+    .who-check { width: 24px; height: 24px; background: var(--gold); border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .who-check svg { width: 12px; height: 12px; stroke: white; fill: none; stroke-width: 2.5; }
+    .who-right { position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; background: var(--forest-light); padding: 80px 5vw; }
+    .important-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 40px; max-width: 380px; }
+    .important-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold-light); margin-bottom: 16px; }
+    .important-card p { font-size: 0.9rem; font-weight: 300; color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 16px; }
+    .important-card strong { color: #fff; font-weight: 500; }
+    .heart-divider { text-align: center; color: var(--gold); font-size: 1rem; }
+
+    /* CTA */
+    .cta-section { padding: 100px 8vw; background: var(--warm-white); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .cta-left .section-label { margin-bottom: 16px; }
+    .cta-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 600; color: var(--forest); letter-spacing: -0.02em; margin-bottom: 20px; }
+    .cta-desc { font-size: 0.95rem; font-weight: 300; color: var(--text-muted); line-height: 1.75; margin-bottom: 36px; }
+    .cta-right { background: var(--forest); border-radius: 24px; padding: 48px; display: flex; flex-direction: column; gap: 20px; }
+    .cta-right h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: #fff; font-style: italic; }
+    .contact-item { display: flex; align-items: center; gap: 14px; color: rgba(255,255,255,0.85); font-size: 0.88rem; font-weight: 300; text-decoration: none; transition: color 0.2s; }
+    .contact-item:hover { color: var(--gold-light); }
+    .contact-icon { width: 38px; height: 38px; background: rgba(255,255,255,0.1); border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .contact-icon svg { width: 16px; height: 16px; stroke: var(--gold-light); fill: none; stroke-width: 1.8; }
+    .contact-item strong { display: block; color: #fff; font-weight: 500; font-size: 0.95rem; }
+    .contact-divider { height: 1px; background: rgba(255,255,255,0.1); }
+
+    /* FOOTER */
+    footer { background: #141f1a; padding: 28px 8vw; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: rgba(255,255,255,0.7); }
+    .footer-tagline { font-size: 0.78rem; color: rgba(255,255,255,0.35); }
+    .footer-area { font-size: 0.78rem; color: var(--gold); font-weight: 400; }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-left > * { animation: fadeUp 0.7s ease both; }
+    .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
+    .hero-left > *:nth-child(3) { animation-delay: 0.3s; }
+    .hero-left > *:nth-child(4) { animation-delay: 0.4s; }
+    .hero-left > *:nth-child(5) { animation-delay: 0.5s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav .nav-links, nav .nav-cta { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 60px 6vw 40px; }
+      .hero-right { height: 400px; }
+      .hero-badge { bottom: 20px; left: 10px; }
+      .trust-bar { grid-template-columns: repeat(2, 1fr); }
+      .trust-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+      .services { padding: 60px 6vw; }
+      .services-grid { grid-template-columns: 1fr; }
+      .who-section { grid-template-columns: 1fr; }
+      .who-right { min-height: 300px; }
+      .cta-section { grid-template-columns: 1fr; gap: 40px; padding: 60px 6vw; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE SHELL — built by the JS below using your SITE settings -->
+
+  <nav id="nav"></nav>
+  <section class="hero" id="hero"></section>
+  <div class="trust-bar" id="trust-bar"></div>
+  <section class="services" id="services"></section>
+  <section class="who-section" id="who"></section>
+  <section class="cta-section" id="contact"></section>
+  <footer id="footer"></footer>
+
+
+  <script>
+    // ============================================================
+    // PAGE BUILDER
+    // Reads every value from SITE above and stamps it into the page.
+    // You don't need to touch any of this.
+    // ============================================================
+
+    // Apply colours from SITE.colours into CSS variables
+    const r = document.documentElement.style;
+    const c = SITE.colours;
+    r.setProperty('--forest',       c.forest);
+    r.setProperty('--forest-light', c.forestLight);
+    r.setProperty('--gold',         c.gold);
+    r.setProperty('--gold-light',   c.goldLight);
+    r.setProperty('--cream',        c.cream);
+    r.setProperty('--warm-white',   c.warmWhite);
+    r.setProperty('--text',         c.text);
+    r.setProperty('--text-muted',   c.textMuted);
+
+    // Update the browser tab title
+    document.title = `${SITE.brandName} – ${SITE.tagline}`;
+
+    // ── NAV ──────────────────────────────────────────────────
+    document.getElementById('nav').innerHTML = `
+      <a href="#" class="nav-logo">
+        <svg viewBox="0 0 40 40" fill="none">
+          <rect width="40" height="40" rx="8" fill="${c.forest}"/>
+          <path d="M20 30c-1-0.8-10-7-10-13a7 7 0 0 1 10-6.3A7 7 0 0 1 30 17c0 6-9 12.2-10 13z" fill="${c.gold}"/>
+          <path d="M16 19h8M20 15v8" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <span class="nav-logo-text">${SITE.brandName}</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#who">Who It's For</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">Book Consultation</a>
+    `;
+
+    // ── HERO ─────────────────────────────────────────────────
+    document.getElementById('hero').innerHTML = `
+      <div class="hero-left">
+        <span class="hero-eyebrow">${SITE.eyebrow}</span>
+        <h1 class="hero-title">${SITE.heroTitle}</h1>
+        <p class="hero-subtitle">${SITE.heroSubtitle}</p>
+        <p class="hero-desc">${SITE.heroDescription}</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">${SITE.heroPrimaryBtn}</a>
+          <a href="#services" class="btn-ghost">${SITE.heroSecondaryBtn}</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <img src="${SITE.heroImage}" alt="${SITE.heroImageAlt}">
+        <div class="hero-badge">
+          <svg viewBox="0 0 24 24"><path d="M12 21c-.5-.4-9-6.5-9-12a9 9 0 0 1 9-8.1A9 9 0 0 1 21 9c0 5.5-8.5 11.6-9 12z"/></svg>
+          ${SITE.heroBadgeText}
+        </div>
+      </div>
+    `;
+
+    // ── TRUST BAR ─────────────────────────────────────────────
+    // Icons: tick, people, document, pin
+    const trustIcons = [
+      `<path d="M13 20l5 5 9-10" stroke="${c.gold}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>`,
+      `<circle cx="15" cy="16" r="4" stroke="${c.gold}" stroke-width="1.8"/><circle cx="25" cy="16" r="4" stroke="${c.gold}" stroke-width="1.8"/><path d="M8 30c0-4 3-7 7-7h10c4 0 7 3 7 7" stroke="${c.gold}" stroke-width="1.8" stroke-linecap="round"/>`,
+      `<rect x="10" y="12" width="20" height="16" rx="3" stroke="${c.gold}" stroke-width="1.8"/><path d="M14 18h12M14 22h8" stroke="${c.gold}" stroke-width="1.8" stroke-linecap="round"/>`,
+      `<circle cx="20" cy="16" r="5" stroke="${c.gold}" stroke-width="1.8"/><path d="M20 21v2M17 29c0-3 6-3 6 0" stroke="${c.gold}" stroke-width="1.8" stroke-linecap="round"/>`,
+    ];
+    document.getElementById('trust-bar').innerHTML = SITE.trust.map((t, i) => `
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="20" fill="rgba(255,255,255,0.06)"/>
+          ${trustIcons[i]}
+        </svg>
+        <span class="trust-text"><strong>${t.heading}</strong>${t.body}</span>
+      </div>
+    `).join('');
+
+    // ── SERVICES ──────────────────────────────────────────────
+    const serviceIcons = [
+      `<svg viewBox="0 0 24 24"><path d="M12 21c-.5-.4-9-6.5-9-12a9 9 0 0 1 9-8.1A9 9 0 0 1 21 9c0 5.5-8.5 11.6-9 12z"/><path d="M9 11h6M12 8v6" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>`,
+      `<svg viewBox="0 0 24 24" fill="white"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22" fill="none" stroke="white" stroke-width="1.5"/></svg>`,
+      `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round"><path d="M3 17l4-8 5 5 3-4 4 7"/><circle cx="17" cy="7" r="3" fill="none"/></svg>`,
+    ];
+    document.getElementById('services').innerHTML = `
+      <div class="section-label">${SITE.servicesLabel}</div>
+      <h2 class="section-title">${SITE.servicesTitle}</h2>
+      <div class="services-grid">
+        ${SITE.services.map((s, i) => `
+          <div class="service-card">
+            <div class="service-icon">${serviceIcons[i]}</div>
+            <h3>${s.title}</h3>
+            <ul class="service-list">
+              ${s.items.map(item => `<li>${item}</li>`).join('')}
+            </ul>
+          </div>
+        `).join('')}
+      </div>
+    `;
+
+    // ── WHO ───────────────────────────────────────────────────
+    document.getElementById('who').innerHTML = `
+      <div class="who-left">
+        <div class="who-label">${SITE.whoLabel}</div>
+        <h2 class="who-title">${SITE.whoTitle}</h2>
+        <ul class="who-list">
+          ${SITE.whoItems.map(item => `
+            <li>
+              <span class="who-check">
+                <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+              </span>
+              ${item}
+            </li>
+          `).join('')}
+        </ul>
+      </div>
+      <div class="who-right">
+        <div class="important-card">
+          <h3>${SITE.importantTitle}</h3>
+          <p>${SITE.importantText}</p>
+          <p><strong>${SITE.importantBold}</strong></p>
+          <div class="heart-divider">♥</div>
+        </div>
+      </div>
+    `;
+
+    // ── CTA / CONTACT ─────────────────────────────────────────
+    const phoneClean = SITE.phone.replace(/\s/g, '');
+    document.getElementById('contact').innerHTML = `
+      <div class="cta-left">
+        <div class="section-label">${SITE.ctaLabel}</div>
+        <h2 class="cta-title">${SITE.ctaTitle}</h2>
+        <p class="cta-desc">${SITE.ctaDescription}</p>
+        <a href="tel:${phoneClean}" class="btn-primary">${SITE.ctaButtonText}</a>
+      </div>
+      <div class="cta-right">
+        <h3>${SITE.ctaCardHeading}</h3>
+        <div class="contact-divider"></div>
+        <a href="tel:${phoneClean}" class="contact-item">
+          <span class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 3a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5 13 13 0 0 0 3 .8 2 2 0 0 1 1.5 2z"/></svg>
+          </span>
+          <span><strong>${SITE.phone}</strong>Call us any time</span>
+        </a>
+        <a href="mailto:${SITE.email}" class="contact-item">
+          <span class="contact-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+          </span>
+          <span><strong>${SITE.email}</strong>Email us</span>
+        </a>
+        <a href="https://${SITE.website}" target="_blank" class="contact-item">
+          <span class="contact-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>
+          </span>
+          <span><strong>${SITE.website}</strong>Visit our website</span>
+        </a>
+      </div>
+    `;
+
+    // ── FOOTER ────────────────────────────────────────────────
+    document.getElementById('footer').innerHTML = `
+      <span class="footer-logo">${SITE.brandName}</span>
+      <span class="footer-tagline">${SITE.tagline}</span>
+      <span class="footer-area">${SITE.footerArea}</span>
+    `;
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EverKin – Coming Soon</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --forest: #1e4433;
+    --forest-mid: #2a5c45;
+    --gold: #c9973c;
+    --gold-light: #e8c47a;
+    --cream: #faf7f2;
+  }
+
+  html, body {
+    height: 100%;
+    font-family: 'DM Sans', sans-serif;
+    background: var(--forest);
+    color: var(--cream);
+    overflow: hidden; /* single-screen, no scroll */
+  }
+
+  /* ── BACKGROUND TEXTURE ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%,   rgba(201,151,60,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 80% at 100% 100%, rgba(42,92,69,0.8)   0%, transparent 70%),
+      radial-gradient(ellipse 60% 50% at 0%   80%,  rgba(201,151,60,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  /* Subtle grain overlay for warmth */
+  body::after {
+    content: '';
+    position: fixed; inset: 0; z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  /* ── LAYOUT ── */
+  .page {
+    position: relative; z-index: 1;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 40px 5vw;
+    text-align: center;
+  }
+
+  /* ── LOGO ── */
+  .logo {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 56px;
+    animation: fadeDown 0.8s ease both;
+  }
+  .logo svg { width: 48px; height: 48px; }
+  .logo-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 600;
+    color: var(--cream); letter-spacing: -0.02em;
+  }
+
+  /* ── DIVIDER ── */
+  .gold-line {
+    width: 60px; height: 1px; background: var(--gold);
+    margin: 0 auto 40px;
+    animation: expandLine 1s ease both;
+    animation-delay: 0.3s;
+  }
+
+  /* ── HEADLINE ── */
+  .headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.6rem, 6vw, 5rem);
+    font-weight: 600; line-height: 1.05;
+    color: var(--cream);
+    letter-spacing: -0.03em;
+    margin-bottom: 10px;
+    animation: fadeUp 0.9s ease both;
+    animation-delay: 0.2s;
+  }
+
+  .headline em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  /* ── TAGLINE ── */
+  .tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: clamp(1.1rem, 2vw, 1.45rem);
+    color: rgba(250,247,242,0.6);
+    margin-bottom: 40px;
+    animation: fadeUp 0.9s ease both;
+    animation-delay: 0.35s;
+  }
+
+  /* ── DESCRIPTION ── */
+  .desc {
+    font-size: 0.95rem; font-weight: 300; line-height: 1.8;
+    color: rgba(250,247,242,0.7);
+    max-width: 480px; margin: 0 auto 52px;
+    animation: fadeUp 0.9s ease both;
+    animation-delay: 0.45s;
+  }
+
+  /* ── CONTACT PILLS ── */
+  .contacts {
+    display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+    margin-bottom: 56px;
+    animation: fadeUp 0.9s ease both;
+    animation-delay: 0.55s;
+  }
+
+  .contact-pill {
+    display: inline-flex; align-items: center; gap: 9px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(201,151,60,0.3);
+    border-radius: 100px;
+    padding: 11px 22px;
+    font-size: 0.85rem; font-weight: 400;
+    color: var(--cream); text-decoration: none;
+    transition: all 0.25s;
+    backdrop-filter: blur(8px);
+  }
+  .contact-pill:hover {
+    background: rgba(201,151,60,0.18);
+    border-color: var(--gold);
+    color: var(--gold-light);
+    transform: translateY(-2px);
+  }
+  .contact-pill svg {
+    width: 14px; height: 14px;
+    stroke: var(--gold); fill: none; stroke-width: 1.8;
+    flex-shrink: 0;
+  }
+
+  /* ── SERVICES PREVIEW ── */
+  .services-hint {
+    display: flex; gap: 28px; flex-wrap: wrap; justify-content: center;
+    animation: fadeUp 0.9s ease both;
+    animation-delay: 0.65s;
+  }
+  .hint-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.78rem; font-weight: 300; letter-spacing: 0.06em;
+    text-transform: uppercase; color: rgba(250,247,242,0.45);
+  }
+  .hint-item::before {
+    content: '♥'; color: var(--gold); font-size: 0.6rem;
+  }
+
+  /* ── BOTTOM TAGLINE ── */
+  .brand-footer {
+    position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 0.85rem;
+    color: rgba(250,247,242,0.3);
+    white-space: nowrap;
+    animation: fadeUp 1s ease both;
+    animation-delay: 0.8s;
+    z-index: 2;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes expandLine {
+    from { width: 0; opacity: 0; }
+    to   { width: 60px; opacity: 1; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .contacts { flex-direction: column; align-items: center; }
+    .contact-pill { width: 100%; max-width: 280px; justify-content: center; }
+    .services-hint { gap: 16px; }
+    body, html { overflow: auto; } /* allow scroll on very small screens */
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Logo -->
+ <div class="logo">
+  <img 
+    src="everkin.jpeg"
+    alt="EverKin Logo"
+    style="
+      width: 220px;
+      height: 80px;
+      object-fit: contain;
+      background: white;
+      padding: 8px;
+      border-radius: 20px;
+      display: block;
+    "
+  />
+</div>
+
+  <!-- Animated gold divider -->
+  <div class="gold-line"></div>
+
+  <!-- Main headline -->
+  <h1 class="headline">Something <em>warm</em><br>is on its way.</h1>
+
+  <!-- Italic serif tagline -->
+  <p class="tagline">Always family, always there.</p>
+
+  <!-- Description -->
+  <p class="desc">
+    We're putting the finishing touches on our new website.
+    In the meantime, we're fully up and running —
+    reach out to arrange a free consultation for your loved one.
+  </p>
+
+  <!-- Contact links -->
+  <div class="contacts">
+    <a href="tel:07424460472" class="contact-pill">
+      <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 3a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5 13 13 0 0 0 3 .8 2 2 0 0 1 1.5 2z"/></svg>
+      07424 460472
+    </a>
+    <a href="mailto:helpline@everkin.co.uk" class="contact-pill">
+      <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+      helpline@everkin.co.uk
+    </a>
+    <a href="https://www.everkin.co.uk" class="contact-pill">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>
+      www.everkin.co.uk
+    </a>
+  </div>
+
+  <!-- Service hints -->
+  <div class="services-hint">
+    <span class="hint-item">Companionship</span>
+    <span class="hint-item">Everyday Support</span>
+    <span class="hint-item">Outings &amp; Connection</span>
+    <span class="hint-item">Manchester &amp; North West</span>
+  </div>
+
+</div>
+
+<!-- Fixed footer tagline -->
+<p class="brand-footer">EverKin &nbsp;·&nbsp; Trusted companionship for older loved ones</p>
+
+</body>
+</html>
